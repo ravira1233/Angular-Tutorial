@@ -3,5 +3,11 @@
 <div >
     {{name}},{{message}}
 </div>
-<button [disabled]="isDisable" (click)="createShop()">Add me</button>
-<app-shop>  </app-shop>
+
+<input (input)="OnEventcapture($event)"  [(ngModel)]="shopname" type="text" class="form-control"/> 
+<p *ngIf="isNoShop;else noshop">{{shopname}}</p>
+<ng-template #noshop>
+    <p >this is not open</p>
+</ng-template>
+<button [disabled]="isDisable" (click)="createShop()" class="btn btn-primary">Add me</button>
+<app-shop *ngFor="let shop of shops">  </app-shop>

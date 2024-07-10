@@ -9,10 +9,14 @@ import { Component } from "@angular/core";
 })
 export class ShoppingMall{
 
+
     //string interpolation
     name:string='This is my mall'
     isDisable:boolean=true
     message:string='this is my shop not open'
+    shopname:string='MAX'
+    isNoShop:boolean=false
+    shops:string[]=['one','two'];
     /**
      *
      */
@@ -25,7 +29,12 @@ export class ShoppingMall{
 
     createShop():void{
 
-        this.message='shop is opened'
+        this.message='shop is opened' + this.shopname
+        this.isNoShop=true
     }
+
+    OnEventcapture(event : Event) {
+       this.shopname=(<HTMLInputElement>event.target).value
+        }
 
 }

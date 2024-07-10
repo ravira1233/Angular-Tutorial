@@ -1,7 +1,16 @@
-<h1>This is my first application</h1>
-<app-shopping-mall></app-shopping-mall>
-<p>{{title}}</p>
+
+
+
+          <app-product-add (addproduct)="onGetProduct($event)"></app-product-add>
 <!-- Attribute bases selector -->
 <!-- <div app-shopping-mall> </div> -->
  <!-- <div calss='app-shopping-mall'> </div> -->
-<router-outlet />
+ <div class="container mt-5">
+    <div class="row">
+        <div class="col-md-3" *ngFor="let prod of productList">
+<app-product-detail [product]="prod"></app-product-detail>
+        </div>
+    </div>
+</div>
+<router-outlet />  
+
